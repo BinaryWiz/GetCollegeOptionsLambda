@@ -68,7 +68,7 @@ class WebDriverWrapper:
         actions.click(college_button)
         actions.perform()
         sleep(2)
-        input = self._driver.find_elements_by_class_name('sherlock')[4]
+        input = self._driver.find_elements_by_class_name('sherlock')[6]
         actions.send_keys_to_element(input, search)
         actions.perform()
         sleep(1)
@@ -80,16 +80,16 @@ class WebDriverWrapper:
         for number in range(number_of_universities):
             college = self._driver.execute_script("return document.getElementsByClassName\
                                                  ('sherlock__results--item--link')\
-                                                 [" + str(number) + "].text")
-            for y in number_list:
-                for z in college:
-                    if str(y) == str(z):
-                        college, junk = college.split(str(y))
+                                                 [" + str(number) + "].textContent")
+            for year in number_list:
+                for letter in college:
+                    if str(year) == str(letter):
+                        college, junk = college.split(str(year))
             colleges.append(college)
         return colleges
 
     def close(self):
-        # Close webdriver connection
+        # Close web driver connection
         self._driver.quit()
 
         # Remove specific tmp dir of this "run"
