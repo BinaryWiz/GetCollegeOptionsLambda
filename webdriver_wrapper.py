@@ -86,10 +86,10 @@ class WebDriverWrapper:
                     if str(year) == str(letter):
                         college, junk = college.split(str(year))
             colleges.append(college)
-        return colleges
+            return colleges
 
     def close(self):
-        # Close web driver connection
+        # Close webdriver connection
         self._driver.quit()
 
         # Remove specific tmp dir of this "run"
