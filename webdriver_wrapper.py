@@ -86,7 +86,7 @@ class WebDriverWrapper:
                     if str(year) == str(letter):
                         college, junk = college.split(str(year))
             colleges.append(college)
-            return colleges
+        return colleges
 
     def close(self):
         # Close webdriver connection
